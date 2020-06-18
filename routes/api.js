@@ -70,4 +70,15 @@ router.post('/recipes', (req, res) => {
     })
 });
 
-module.exports = router;
+router.delete('/recipes/:id', (req, res) => {
+  db.Recipes.destroy({
+    where: req.params.id
+  })
+    .then(recipe => {
+      if (!recipe) { res.status(400).json({ error: `could not find recipe with ID: ${id}` }) }
+
+    })
+
+
+
+  module.exports = router;
