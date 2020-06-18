@@ -15,7 +15,7 @@ app.use(cookieParser());
 
 // TODO: put react app here
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 
 app.use('/api/v1', apiRouter);
 

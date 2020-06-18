@@ -4,7 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.TEXT
   }, {});
   Categories.associate = function (models) {
-    Categories.belongToMany(models.Recipes, { through: "RecipeCategories" })
+    Categories.belongsToMany(models.Recipes, {
+      through: "RecipeCategories",
+      foreignKey: "categoriesId",
+      otherKey: "recipesId"
+    })
   };
   return Categories;
 };
