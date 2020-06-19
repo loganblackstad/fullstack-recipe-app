@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+
 
 export default class Recipes extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       recipes: [],
@@ -24,9 +26,14 @@ export default class Recipes extends Component {
       <div>
         {this.state.recipes.map(recipe => {
           return (
-            <div>
+            <div key={recipe.id}>
               <h1>{recipe.name}</h1>
-              <pre>{JSON.stringify(recipe, null, '\n')}</pre>
+              <p>Review: {recipe.review}</p>
+              <p>Description: {recipe.description}</p>
+              <p>Likes: {recipe.likes}</p>
+              <p>ID: {recipe.id}</p>
+
+              <NavLink to={`/recipes/${recipe.id}`}>Show Details</NavLink>
             </div>
           )
         })}
@@ -34,3 +41,6 @@ export default class Recipes extends Component {
     )
   }
 }
+
+
+// <pre>{JSON.stringify(recipe, null, '\n')}</pre> */}
