@@ -27,7 +27,7 @@ export default class Recipes extends Component {
     // find the recipe with the given id and create a copy of that
     recipeGettingLiked.likes = recipeGettingLiked.likes + 1;
     // update the likes on that copy
-    // insert the newRecipes and setState
+    // insert the recipeGettingLiked into newRecipes and setState
     var newRecipes = this.state.recipes.map((recipe, ndx) => {
       if (ndx === index) {
         return recipeGettingLiked;
@@ -37,19 +37,27 @@ export default class Recipes extends Component {
     this.setState({ recipes: newRecipes })
   };
 
+
+  deleteCard = (index) => {
+    var theID = this.state.recipes[index].id;
+    var newRecipes = this.state.recipes.filter(recipe => {
+      return recipe.id !== theID
+    });
+    this.setState({ recipes: newRecipes })
+  };
+
   render() {
     return (
       <div>
         {this.state.recipes.map((recipe, index) => {
           return (
-            <div key={recipe.id}>
-              <h1>{recipe.name}<button className="btn-delete">Delete</button></h1>
+            <div key={recipe.id} className="recipe-square">
+              <h1>{recipe.name}<button className="btn-delete" onClick={() => { this.deleteCard(index) }}>Delete</button></h1>
               <p>Review: {recipe.review}</p>
               <p>Description: {recipe.description}</p>
               <p>Likes: {recipe.likes} </p>
               <button type="button" onClick={() => { this.addLike(index) }}>Add Like</button>
               <p>ID: {recipe.id}</p>
-
               <Link to={`/recipes/${recipe.id}`}>Show Details</Link>
             </div>
           )

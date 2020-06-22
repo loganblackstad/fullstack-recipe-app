@@ -1,5 +1,10 @@
 .btn-delete {
   margin-left: 10px;
   margin-bottom: 10px;
+}
 
+.recipe-square {
+  border: 1px solid grey;
+  padding-bottom: 20px;
+ 
 }
