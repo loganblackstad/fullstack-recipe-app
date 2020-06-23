@@ -49,11 +49,11 @@ export default class RecipeForm extends Component {
         <form onSubmit={this.handleFormSubmit}>
           <div className={styles.formGroup}>
             <label htmlFor="name">Recipe Name</label>
-            <input type="text" id="name" name="name" value={this.state.name} onChange={this.handleChange}/>
+            <input type="text" id="name" name="name" value={this.state.name} onChange={this.handleChange} />
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="url">Recipe URL</label>
-            <input type="text" id="url" name="url" value={this.state.url} onChange={this.handleChange}/>
+            <input type="text" id="url" name="url" value={this.state.url} onChange={this.handleChange} />
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="description">Recipe Description</label>

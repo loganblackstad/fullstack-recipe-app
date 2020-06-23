@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import './Recipes.css'
 
 export default class Recipes extends Component {
   constructor() {
@@ -22,12 +23,12 @@ export default class Recipes extends Component {
 
   render() {
     return (
-      <div>
-        { this.state.recipes.map(recipe => {
+      <div className="recipeList">
+        {this.state.recipes.map(recipe => {
           return (
             <div key={recipe.id} >
-              <h1>{ recipe.name }</h1>
-              <p>{ recipe.description }</p>
+              <h1>{recipe.name}</h1>
+              <p>{recipe.description}</p>
               <Link to={`/recipes/${recipe.id}`}>Show Details</Link>
             </div>
           )

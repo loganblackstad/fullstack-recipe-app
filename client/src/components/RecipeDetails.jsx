@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import styles from './RecipeDetails.module.css';
+
 
 export default class RecipeDetails extends Component {
   constructor(props) {
@@ -30,8 +32,9 @@ export default class RecipeDetails extends Component {
 
 
     return (
-      <div className="RecipeDetails">
+      <div className={styles.RecipeDetails}>
         <h1>{details.name}</h1>
+        <p>{details.review}</p>
       </div>
     )
   }
