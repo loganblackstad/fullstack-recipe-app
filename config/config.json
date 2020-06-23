@@ -4,10 +4,9 @@
     "password": null,
     "database": "codekitchen",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "dialect": "postgres"
   },
   "production": {
-    "use_env_variable": "BATABASE_URL"
+    "use_env_variable": "DATABASE_URL"
   }
 }

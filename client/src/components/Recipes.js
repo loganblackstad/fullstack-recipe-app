@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import './Recipes.css';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class Recipes extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       recipes: [],
@@ -21,43 +20,14 @@ export default class Recipes extends Component {
       })
   }
 
-  addLike = (index) => {
-    // create a recplica of the new state
-    var recipeGettingLiked = { ...this.state.recipes[index] };
-    // find the recipe with the given id and create a copy of that
-    recipeGettingLiked.likes = recipeGettingLiked.likes + 1;
-    // update the likes on that copy
-    // insert the recipeGettingLiked into newRecipes and setState
-    var newRecipes = this.state.recipes.map((recipe, ndx) => {
-      if (ndx === index) {
-        return recipeGettingLiked;
-      }
-      return recipe;
-    });
-    this.setState({ recipes: newRecipes })
-  };
-
-
-  deleteCard = (index) => {
-    var theID = this.state.recipes[index].id;
-    var newRecipes = this.state.recipes.filter(recipe => {
-      return recipe.id !== theID
-    });
-    this.setState({ recipes: newRecipes })
-  };
-
   render() {
     return (
       <div>
-        {this.state.recipes.map((recipe, index) => {
+        { this.state.recipes.map(recipe => {
           return (
-            <div key={recipe.id} className="recipe-square">
-              <h1>{recipe.name}<button className="btn-delete" onClick={() => { this.deleteCard(index) }}>Delete</button></h1>
-              <p>Review: {recipe.review}</p>
-              <p>Description: {recipe.description}</p>
-              <p>Likes: {recipe.likes} </p>
-              <button type="button" onClick={() => { this.addLike(index) }}>Add Like</button>
-              <p>ID: {recipe.id}</p>
+            <div key={recipe.id} >
+              <h1>{ recipe.name }</h1>
+              <p>{ recipe.description }</p>
               <Link to={`/recipes/${recipe.id}`}>Show Details</Link>
             </div>
           )
@@ -66,6 +36,3 @@ export default class Recipes extends Component {
     )
   }
 }
-
-
-// <pre>{JSON.stringify(recipe, null, '\n')}</pre> */}

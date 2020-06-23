@@ -1,7 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Recipes = sequelize.define('Recipes', {
-    name: DataTypes.TEXT,
+    name: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     review: DataTypes.TEXT,
     description: DataTypes.TEXT,
     url: DataTypes.TEXT,
@@ -10,12 +13,12 @@ module.exports = (sequelize, DataTypes) => {
     vegan: DataTypes.BOOLEAN,
     glutenfree: DataTypes.BOOLEAN
   }, {});
-  Recipes.associate = function (models) {
+  Recipes.associate = function(models) {
     Recipes.belongsToMany(models.Categories, {
-      through: "RecipeCategories",
-      foreignKey: "recipesId",
-      otherKey: "categoriesId"
-    })
+      through: 'RecipesCategories',
+      foreignKey: 'recipesId',
+      otherKey: 'categoriesId'
+    });
   };
   return Recipes;
 };
