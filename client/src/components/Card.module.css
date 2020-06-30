@@ -1,0 +1,40 @@
+.Card {
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+  position: relative;
+  perspective: 800px;
+}
+
+.CardInner {
+  width: 300px;
+  height: 420px;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 5px;
+  border: 1px solid #193D49;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.CardFront {
+  font-size: 30px;
+  padding-top: 45px;
+  transform: rotateY(180deg);
+}
+
+.CardBack {
+  background-image: url('../img/c1.png');
+}
+
+.CardFront,
+.CardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.CardInner.flipped {
+  transform: rotateY(180deg);
+}

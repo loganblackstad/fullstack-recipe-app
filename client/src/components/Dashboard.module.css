@@ -1,0 +1,15 @@
+.Dashboard{
+  padding-top: 50px;
+  margin: auto;
+  width: 30%;
+  min-width: 400px;
+  text-align: center;
+}
+
+Link {
+  text-decoration: none;
+}
+
+.Players {
+  margin-top: 50px;
+}

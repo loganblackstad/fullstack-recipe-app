@@ -23,6 +23,31 @@ export default class RecipeDetails extends Component {
       })
   }
 
+  /*
+  increaseLikes = () => {
+    // desctructuring
+    const { id } = this.state.details;
+
+    fetch('/api/v1/recipes/${id}/likes', {
+      method: 'POST'
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          props.onLike(data)
+        })
+      });
+  }
+  */
+  handleLike(newLikes) {
+    this.setState({
+      details: {
+        ...this.state.details,
+        like: newLikes
+      }
+    })
+  }
+
   render() {
     const { loading, details } = this.state;
 
@@ -31,9 +56,10 @@ export default class RecipeDetails extends Component {
     }
 
     return (
-      <div className={styles.RecipeDetails}>
+      <div className={styles.RecipeDetails} >
         <h1>{details.name}</h1>
         <p>Review:  {details.review}</p>
+        {/* <p>Likes:  {details.likes} <button onClick={() => this.increaseLikes(props.id) > <span role="img" aria-label="Likes: ">👍</span></button></p> */}
       </div>
     )
   }
